@@ -37,14 +37,17 @@ h1{
     background: #444059;
     border: none;
     width: 317px;
-    height: 118px;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 135px;
    
 }
 
 #to-field, #from-field{
     background: #444059;
     border: none;
-    padding: 10px 9px 10px 9px;
+    padding: 10px;
     text-align: center;
     border-radius: 8px;
 }
@@ -66,6 +69,11 @@ button{
     background: #28A9F1;
     font-size: 22px;
     margin-top: 8px;
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(1, 9, 66, 0.2);
 }
 
 .container-2{
