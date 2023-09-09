@@ -28,7 +28,8 @@ h1{
 .endorsements-header{
     color: #FFF;
     text-align: center;
-    margin-top: 8px;
+    margin-top: 20px;
+    font-size: 17px;
 }
 
 #endorsement-field{
