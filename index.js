@@ -14,8 +14,8 @@ const publishBtn = document.getElementById('publish-button');
 const inputField = document.getElementById('endorsement-field');
 
 
-publishBtn.addEventListener("onclick", function() {
-    let inputValue = inputField.vslue;
+publishBtn.addEventListener("click", function() {
+    let inputValue = inputField.value;
     push(endorsementsInDB, inputValue);
 
 
