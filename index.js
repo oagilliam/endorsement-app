@@ -1,4 +1,11 @@
-// Connections to the database (Google firebase)
+// SECTION 1: Variables For User's Entered Input 
+const publishBtn = document.getElementById('publish-button');    
+const inputField = document.getElementById('endorsement-field'); 
+const fromField = document.getElementById("from-field");
+const toField = document.getElementById('to-field');
+const clearField = ''; // Removes previous text from input/textera fields
+
+// SECTION 2: Connections to The Database (Google firebase)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
 import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
@@ -9,16 +16,29 @@ const appSettings = {
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const endorsementsInDB = ref(database, "endorsements");
+const sendersNameInDB = ref(database, "sendersName");
+const recipientsNameInDB = ref(database, "recipientsName");
 
-const publishBtn = document.getElementById('publish-button');
-const inputField = document.getElementById('endorsement-field');
-
+// SECTION 3: Messages Added to User's Feed
+const messagesFeedEl = document.getElementById('message-feed'); // Contains all the messeges in the feed
+const warningMsg = document.getElementById('invalid-entry-warning');  // Shows warning if a field is left empty
 
 publishBtn.addEventListener("click", function() {
-    let inputValue = inputField.value;
-    push(endorsementsInDB, inputValue);
-
-
-
-
+    if (inputField.value.length === 0 || fromField.value.length === 0 || toField.value.length === 0) {
+        warningMsg.textContent = 'Please add an entry to all fields!';
+    } else {
+        warningMsg.textContent = clearField
+        let inputValue = inputField.value;
+        push(endorsementsInDB, inputValue);
+        let fromValue = fromField.value;
+        push(sendersNameInDB, fromValue);
+        let toValue = toField.value;
+        push(recipientsNameInDB, toValue);
+        inputField.value = clearField;
+        fromField.value = clearField;
+        toField.value = clearField;
+        
+        messagesFeedEl.innerHTML += `<li>To ${toValue}<br>${inputValue}<br>From ${fromValue}</li>`
+       
+    } 
 })

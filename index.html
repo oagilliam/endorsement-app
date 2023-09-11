@@ -14,7 +14,9 @@
             <div class="container">
                 <img src="freddie.png" alt="A white silouette of a man posing with one arm raised and the other arm in front of him holding a microphone stand.">
                 <h1>We Are The Champions</h1>
-                <input type="text" id="endorsement-field" placeholder="Write your endorsement here">
+                <span id="invalid-entry-warning" style="color: tomato; font-size: smaller;"></span>
+                <textarea type="text" id="endorsement-field" placeholder="Write your endorsement here" rows="1" cols="15" style="resize: none;"></textarea>
+                <span id="inputWarning" class="warning-text"></span>
             </div>
             <div class="to-from-container">
                 <input type="text" id="from-field" placeholder="From">
@@ -24,6 +26,7 @@
                 <button id="publish-button">Publish</button>
             </div>
             <h2 class="endorsements-header">- Endorsements -</h2>
+            <ul id="message-feed"></ul>
             <script src="index.js" type="module"> </script>
         </body>
     </main>
