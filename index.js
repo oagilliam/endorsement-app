@@ -38,7 +38,7 @@ publishBtn.addEventListener("click", function() {
         fromField.value = clearField;
         toField.value = clearField;
         
-        messagesFeedEl.innerHTML += `<li>To ${toValue}<br>${inputValue}<br>From ${fromValue}</li>`
+        messagesFeedEl.innerHTML += `<li>To ${toValue}<br><br>${inputValue}<br><br>From ${fromValue}</li>`
        
     } 
 })
