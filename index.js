@@ -15,9 +15,7 @@ const appSettings = {
 
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
-const endorsementsInDB = ref(database, "endorsements");
-const sendersNameInDB = ref(database, "sendersName");
-const recipientsNameInDB = ref(database, "recipientsName");
+const userInputInDB = ref(database, 'userInput');
 
 // SECTION 3: Messages Added to User's Feed
 const messagesFeedEl = document.getElementById('message-feed'); // Contains all the messeges in the feed
@@ -29,16 +27,21 @@ publishBtn.addEventListener("click", function() {
     } else {
         warningMsg.textContent = clearField
         let inputValue = inputField.value;
-        push(endorsementsInDB, inputValue);
         let fromValue = fromField.value;
-        push(sendersNameInDB, fromValue);
         let toValue = toField.value;
-        push(recipientsNameInDB, toValue);
+
+        let userInputValues = ["From: "+fromValue,"To: "+toValue,"Message: "+inputValue];
+        push(userInputInDB, userInputValues )
+
         inputField.value = clearField;
         fromField.value = clearField;
         toField.value = clearField;
         
-        messagesFeedEl.innerHTML += `<li>To ${toValue}<br><br>${inputValue}<br><br>From ${fromValue}</li>`
-       
+        messagesFeedEl.innerHTML += `
+        <li>
+            To ${toValue}<br><br>
+            <span class="input-value-text">${inputValue}</span><br><br>
+            From ${fromValue}
+        </li>`
     } 
 })
