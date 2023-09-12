@@ -45,7 +45,7 @@ h1{
 #to-field, #from-field{
     background: #444059;
     border: none;
-    width: 145px;
+    width: auto;
     height: 40px;
     padding-left: 10px;
     padding-right: 10px;
