@@ -1,3 +1,3 @@
 # endorsement-app
 
-Work in progress 98% complete
+Work in progress... 98% complete 😬
